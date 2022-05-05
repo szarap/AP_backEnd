@@ -1,13 +1,18 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -45,27 +50,30 @@ private Date fechaFin;
 @Column(name="descripcion")
 private String descripcion;
 
-//@ManyToOne
-//@JoinColumn(name="persona_idPersona")
-//private Persona persona_idPersona;
+//----mapeo con Persona
+@ManyToOne
+@JoinColumn(name="persona_id")
+@JsonBackReference
+private Persona persona_id;
 
-//@ManyToOne
-//@JoinColumn(name="tipoTrabajo_idTrabajo")
-//private TipoTrabajo tipoTrabajo_idTrabajo;
+//----mapeo de Experiencia Lab con Tipo Trabajo
+@ManyToMany
+private Collection<TipoTrabajo> trabajos = new HashSet();
 
     public ExperienciaLaboral() {
     }
 
-    public ExperienciaLaboral(Long id, String nombreExperiencia, boolean actual, Date fechaInicio, Date fechaFin, String descripcion, Persona persona_idPersona, TipoTrabajo tipoTrabajo_idTrabajo) {
+    public ExperienciaLaboral(Long id, String nombreExperiencia, boolean actual, Date fechaInicio, Date fechaFin, String descripcion, Persona persona_id) {
         this.id = id;
         this.nombreExperiencia = nombreExperiencia;
         this.actual = actual;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.descripcion = descripcion;
-        //this.persona_idPersona = persona_idPersona;
-        //this.tipoTrabajo_idTrabajo = tipoTrabajo_idTrabajo;
+        this.descripcion = descripcion;        
+        this.persona_id = persona_id;
     }
+
+
 
     
 

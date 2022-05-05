@@ -1,6 +1,9 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,28 +33,21 @@ private Long id;
 @Column(name="nombre")
 private String nombre;
 
-//@ManyToMany(cascade = {
-  //          CascadeType.PERSIST,
-    //        CascadeType.MERGE
-    //})
-    //@JoinTable(
-      //      name = "tecnologia_proyecto",
-        //    joinColumns = {@JoinColumn(name = "tecnologia_id")},
-          //  inverseJoinColumns = {@JoinColumn(name = "proyecto_id")}
-   // )
-   // private Set<Proyecto> proyectos;
+//---- mapeo de tecnologia con Proyecto
+@ManyToMany(mappedBy="tecnologias")
+@JsonIgnore
+private Collection<Proyecto> Proyecto = new HashSet();
+
 
     public Tecnologia() {
     }
 
-    public Tecnologia(Long id, String nombre, Set<Proyecto> proyectos) {
+    public Tecnologia(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-      //  this.proyectos = proyectos;
     }
 
 
-  
-
-
+    
+    
 }

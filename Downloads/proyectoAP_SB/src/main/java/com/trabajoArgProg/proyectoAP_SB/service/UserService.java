@@ -31,9 +31,20 @@ public class UserService implements IUserService {
     @Override
     public User buscarUser(Long id) {
         return userRepo.findById(id).orElse(null);
+    }  
+    
+    //---------------
+    @Override
+    public User findByEmailAndContrasenia(String email, Long contrasenia) {
+        return userRepo.findByEmailAndContrasenia(email, contrasenia);
     }
-    
-    
-    
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+
+   
+
     
 }

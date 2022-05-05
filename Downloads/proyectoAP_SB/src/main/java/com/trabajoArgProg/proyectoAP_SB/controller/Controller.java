@@ -32,8 +32,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
     
-//-------------------------------------------------------------------------
-            //Persona Controller
+//------------------------------------------------------------
+    //Persona Controller
+    
 @Autowired
 private IPersonaService persoServ;
         
@@ -52,11 +53,15 @@ public List<Persona> verPersonas(){
 public void borrarPersona (@PathVariable Long id){
     persoServ.borrarPersona(id);
 }
-//falta agregar el update persona
 
+@GetMapping( "/buscarPersona/{id}")
+   public Persona buscarPersona(@PathVariable Long id) {
+   return persoServ.buscarPersona(id);
+}
 //-------------------------------------------------------------------------
             //Controller SEXO
-@Autowired
+   
+   @Autowired
 private ISexoService sexoServ;
 
 @PostMapping ("/new/sexo")
@@ -74,19 +79,21 @@ public List<Sexo> verSexo(){
 public void borrarSexo(@PathVariable Long id){
     sexoServ.borrarSexo(id);
 }
-//falta agregar updateSexo
 
+@GetMapping( "/buscarSexo/{id}")
+   public Sexo buscarSexo(@PathVariable Long id) {
+   return sexoServ.buscarSexo(id);
+}   
 //-------------------------------------------------------------------------
         //controller User
+   
 @Autowired
 private IUserService userServ;
-
 
 @PostMapping ("/new/user")
 public void crearUser(@RequestBody User user){
     userServ.crearUser(user);
 }
-
 
 @GetMapping("/ver/user")
 @ResponseBody
@@ -98,9 +105,28 @@ public List<User> verUser(){
 public void borrarUser(@PathVariable Long id){
     userServ.borrarUser(id);
 }
-//falta agregar updateUser
+
+@GetMapping( "/buscarUser/{id}")
+   public User buscarUser(@PathVariable Long id) {
+   return userServ.buscarUser(id);
+}
+   
+    //---------inicio--------Controlador para el Login   
+@GetMapping("/userEmail/{email}")
+@ResponseBody
+public User Email(@PathVariable String email){
+    return userServ.findByEmail(email);
+}
+   
+@PostMapping("/userLogin")
+@ResponseBody
+public User login(@RequestBody User u){
+    return(userServ.findByEmailAndContrasenia(u.getEmail(), u.getContrasenia()));
+}
+    //---------fin--------Controlador para el Login
+   
 //-------------------------------------------------------------------------
-        //controller Proyecto
+        //controller Proyecto   
 @Autowired
 private IProyectoService proyServ;
 
@@ -120,8 +146,12 @@ public void borrarProyecto(@PathVariable Long id){
     proyServ.borrarProyecto(id);
 }
 
+@GetMapping( "/buscarProyecto/{id}")
+   public Proyecto buscarProyecto(@PathVariable Long id) {
+   return proyServ.buscarProyecto(id);
+}
 //-------------------------------------------------------------------------
-        //contrller Exp Laboral
+        //contrller Exp Laboral   
 @Autowired
 private IExperienciaLaboralService expeServ;
 
@@ -141,8 +171,12 @@ public void borrarExperienciaLaboral(@PathVariable Long id){
     expeServ.borrarExperienciaLaboral(id);
 }
 
+@GetMapping( "/buscarExperienciaLaboral/{id}")
+   public ExperienciaLaboral buscarExperienciaLaboral(@PathVariable Long id) {
+   return expeServ.buscarExperienciaLaboral(id);
+}
 //-------------------------------------------------------------------------
-        //contrller TipoTrabajo
+        //contrller TipoTrabajo   
 @Autowired
 private ITipoTrabajoService tipotrabServ;
 
@@ -162,6 +196,10 @@ public void borrarTipoTrabajo(@PathVariable Long id){
     tipotrabServ.borrarTipoTrabajo(id);
 }
 
+@GetMapping( "/buscarTipoTrabajo/{id}")
+   public TipoTrabajo buscarTipoTrabajo(@PathVariable Long id) {
+   return tipotrabServ.buscarTipoTrabajo(id);
+}
 //-------------------------------------------------------------------------
         //contrller TipoEducacion
 @Autowired
@@ -181,6 +219,11 @@ public List<TipoEducacion> verTipoEducacion(){
 @DeleteMapping("/deleteTipoeducacion/{id}")
 public void borrarTipoEducacion(@PathVariable Long id){
     tipoeduServ.borrarTipoEducacion(id);
+}
+
+@GetMapping( "/buscarTipoEducacion/{id}")
+   public TipoEducacion buscarTipoEducacion(@PathVariable Long id) {
+   return tipoeduServ.buscarTipoEducacion(id);
 }
 //-------------------------------------------------------------------------
         //contrller Educacion
@@ -203,6 +246,10 @@ public void borrarEducacion(@PathVariable Long id){
     eduServ.borrarEducacion(id);
 }
 
+@GetMapping( "/buscarEducacion/{id}")
+   public Educacion buscarEducacion(@PathVariable Long id) {
+   return eduServ.buscarEducacion(id);
+}
 //-------------------------------------------------------------------------
         //contrller tecnologia
 @Autowired
@@ -223,5 +270,12 @@ public List<Tecnologia> verTecnologia(){
 public void borrarTecnologia(@PathVariable Long id){
     tecnoServ.borrarTecnologia(id);
 }
+
+@GetMapping( "/buscarTecnologia/{id}")
+   public Tecnologia buscarTecnologia(@PathVariable Long id) {
+   return tecnoServ.buscarTecnologia(id);
+}
+//-----------------------------------------------------------------------------
+//---------mapeo para el Login
 
 }

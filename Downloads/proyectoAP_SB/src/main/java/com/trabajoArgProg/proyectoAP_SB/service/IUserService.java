@@ -14,5 +14,11 @@ public interface IUserService {
     public void borrarUser(Long id);
     
     public User buscarUser(Long id);
+
+    //----metodos para el Login   
     
+    public User findByEmailAndContrasenia(String email, Long contrasenia);    
+
+    public User findByEmail(String email);
+
 }

@@ -1,6 +1,9 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,32 +30,23 @@ public class TipoEducacion {
 @Column(name="id")
 private Long id;
 
-@Column(name="nombreTipoEdu")
-private String nombreTipoEdu;
+@Column(name="nombretedu")
+private String nombretedu;
 
-//@ManyToMany(cascade = {
-  //          CascadeType.PERSIST,
-    //        CascadeType.MERGE
-    //})
-    //@JoinTable(
-      //      name = "tipoEducacion_educacion",
-        //    joinColumns = {@JoinColumn(name = "tipoEducacion_id")},
-          //  inverseJoinColumns = {@JoinColumn(name = "educacion_id")}
-   // )
-   // private Set<Educacion> educaciones;
-
+//------ mapeo con Educacion
+@ManyToMany(mappedBy="tipoeducaciones")
+@JsonIgnore
+private Collection<Educacion> educaciones = new HashSet();
   
     public TipoEducacion() {
     }
 
-    public TipoEducacion(Long id, String nombreTipoEdu, Set<Educacion> educaciones) {
+    public TipoEducacion(Long id, String nombretedu) {
         this.id = id;
-        this.nombreTipoEdu = nombreTipoEdu;
-     //   this.educaciones = educaciones;
+        this.nombretedu = nombretedu;
     }
 
 
 
-
-
+    
 }

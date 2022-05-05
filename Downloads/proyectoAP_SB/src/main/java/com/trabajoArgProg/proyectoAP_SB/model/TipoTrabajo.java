@@ -1,11 +1,15 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
+import java.util.HashSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,15 +27,20 @@ public class TipoTrabajo {
 @Column(name="id")
 private Long id;
 
-@Column(name="tipoTrabajo")
-private String tipoTrabajo;
+@Column(name="tipotrabajo")
+private String tipotrabajo;
+
+@ManyToMany(mappedBy="trabajos")
+@JsonIgnore
+private Collection<ExperienciaLaboral> experiencialaboral = new HashSet();
+
 
     public TipoTrabajo() {
     }
 
-    public TipoTrabajo(Long id, String tipoTrabajo) {
+    public TipoTrabajo(Long id, String tipotrabajo) {
         this.id = id;
-        this.tipoTrabajo = tipoTrabajo;
+        this.tipotrabajo = tipotrabajo;
     }
 
 

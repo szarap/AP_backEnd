@@ -1,14 +1,20 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -37,28 +43,28 @@ private String nombre;
 @Column(name="anio")
 private Date anio;
 
-//@ManyToOne
-//@JoinColumn(name="persona_idPersona")
-//private Persona persona_idPersona;
+//----mapeo con Persona
+@ManyToOne
+@JoinColumn(name="persona_id")
+@JsonBackReference
+private Persona persona_id;
 
-//@ManyToMany(mappedBy = "proyectos")
-//private Set<Tecnologia> tecnologias;
-
+//----mapeo de Proyecto con Tecnologia
+@ManyToMany
+private Collection<Tecnologia> tecnologias = new HashSet();
 
     public Proyecto() {
+
     }
 
-    public Proyecto(Long id, String nombre, Date anio, Persona persona_idPersona, Set<Tecnologia> tecnologias) {
+    public Proyecto(Long id, String nombre, Date anio, Persona persona_id) {
         this.id = id;
         this.nombre = nombre;
         this.anio = anio;
-        //this.persona_idPersona = persona_idPersona;
-        //this.tecnologias = tecnologias;
+        this.persona_id = persona_id;
     }
 
-    
-      
-    
+
 }
 
 

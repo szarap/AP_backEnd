@@ -1,8 +1,10 @@
 
 package com.trabajoArgProg.proyectoAP_SB.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,15 +17,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="user")
+@Table(name="users")
 
 public class User {
-
+    
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-@Column(name="userid")
-private Long userid;
+@Column(name="id")
+private Long id;
 
 @Column(name="email")
 private String email;
@@ -31,29 +33,10 @@ private String email;
 @Column(name="contrasenia")
 private Long contrasenia;
 
-@OneToOne
-@JoinColumn(name="userid")
-private Persona persona;
+//----mapeo con Persona
+@OneToOne(cascade= CascadeType.ALL)
+@JoinColumn(name="fk_persona")
+private Persona fk_persona;
 
-
-  
-public User() {
-    }
-
-    public User(Long userid, String email, Long contrasenia, Persona persona) {
-        this.userid = userid;
-        this.email = email;
-        this.contrasenia = contrasenia;
-        this.persona = persona;
-    }
-
-  
-
-   
-
-
-
-
-  
 
 }
