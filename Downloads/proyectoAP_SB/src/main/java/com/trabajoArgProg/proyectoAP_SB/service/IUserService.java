@@ -1,6 +1,7 @@
 
 package com.trabajoArgProg.proyectoAP_SB.service;
 
+import com.trabajoArgProg.proyectoAP_SB.model.Persona;
 import com.trabajoArgProg.proyectoAP_SB.model.User;
 import java.util.List;
 
@@ -14,11 +15,15 @@ public interface IUserService {
     public void borrarUser(Long id);
     
     public User buscarUser(Long id);
+    
+    public void editarUser(User u);
 
     //----metodos para el Login   
     
     public User findByEmailAndContrasenia(String email, Long contrasenia);    
 
     public User findByEmail(String email);
+
+     
 
 }

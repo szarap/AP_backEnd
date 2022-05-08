@@ -32,5 +32,10 @@ public class TecnologiaService implements ITecnologiaService{
     public Tecnologia buscarTecnologia(Long id) {
         return tecnoRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public void editarTecnologia(Tecnologia tec) {
+       tecnoRepo.save(tec); 
+    }
     
 }

@@ -32,6 +32,11 @@ public class TipoEducacionService implements ITipoEducacionService{
     public TipoEducacion buscarTipoEducacion(Long id) {
     return tipoeduRepo.findById(id).orElse(null);    
     }
+
+    @Override
+    public void editarTipoEducacion(TipoEducacion tipoedu) {
+    tipoeduRepo.save(tipoedu);    
+    }
     
 
     

@@ -13,5 +13,7 @@ public interface ISexoService {
     public void borrarSexo (Long id);
     
     public Sexo buscarSexo (Long id);
+
+    public void editarSexo(Sexo s);
     
 }

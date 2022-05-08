@@ -32,5 +32,10 @@ public class TipoTrabajoService implements ITipoTrabajoService{
     public TipoTrabajo buscarTipoTrabajo(Long id) {
     return tipotrabRepo.findById(id).orElse(null);    
     }
+
+    @Override
+    public void editarTipoTrabajo(TipoTrabajo tipotrab) {
+    tipotrabRepo.save(tipotrab);    
+    }
     
 }

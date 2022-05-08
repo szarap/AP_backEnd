@@ -32,5 +32,11 @@ public SexoRepository sexoRepo;
     public Sexo buscarSexo(Long id) {
     return sexoRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public void editarSexo(Sexo s) {
+        sexoRepo.save(s);
+    }
+    
     
 }
