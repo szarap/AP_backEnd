@@ -38,4 +38,9 @@ public class ExperienciaLaboralService implements IExperienciaLaboralService{
         expeRepo.save(expLab);
     }
     
+    //@Override
+    //public void editarExperienciaLaborald(ExperienciaLaboral expLabId) {
+      //  expeRepo.save(expLabId);
+   // }
+    
 }

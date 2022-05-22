@@ -43,6 +43,9 @@ private String nombre;
 @Column(name="anio")
 private Date anio;
 
+@Column (name="fotoproyecto")
+private String fotoproyecto;
+
 //----mapeo con Persona
 @ManyToOne
 @JoinColumn(name="persona_id")
@@ -57,12 +60,15 @@ private Collection<Tecnologia> tecnologias = new HashSet();
 
     }
 
-    public Proyecto(Long id, String nombre, Date anio, Persona persona_id) {
+    public Proyecto(Long id, String nombre, Date anio, String fotoproyecto, Persona persona_id) {
         this.id = id;
         this.nombre = nombre;
         this.anio = anio;
+        this.fotoproyecto = fotoproyecto;
         this.persona_id = persona_id;
     }
+
+    
 
 
 }

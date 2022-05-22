@@ -201,6 +201,11 @@ public void borrarExperienciaLaboral(@PathVariable Long id){
 public void editarExperienciaLaboral(@RequestBody ExperienciaLaboral expLab){
     expeServ.editarExperienciaLaboral(expLab);
 }
+
+//@PutMapping("experienciaLaboral/editar/{id}")
+//public void editarExperienciaLaboralId(@RequestBody ExperienciaLaboral expLabId){
+  //  expeServ.editarExperienciaLaboral(expLabId);
+//}
 //-------------------------------------------------------------------------
         //contrller TipoTrabajo   
 @Autowired
@@ -257,8 +262,6 @@ public void borrarTipoEducacion(@PathVariable Long id){
    return tipoeduServ.buscarTipoEducacion(id);
 }
 
-@GetMapping ("educacion/ver")
-   
 @PutMapping("tipoEducacion/editar")
 public void editarTipoEducacion(@RequestBody TipoEducacion tipoedu){
     tipoeduServ.editarTipoEducacion(tipoedu);
@@ -272,6 +275,8 @@ private IEducacionService eduServ;
 public void crearEducacion(@RequestBody Educacion educacion){
     eduServ.crearEducacion(educacion);
 }
+
+@GetMapping ("educacion/ver")
 @ResponseBody
 public List<Educacion> verEducacion(){
     return eduServ.verEducacion();
@@ -286,7 +291,7 @@ public void borrarEducacion(@PathVariable Long id){
    public Educacion buscarEducacion(@PathVariable Long id) {
    return eduServ.buscarEducacion(id);
 }
-
+   
 @PutMapping("educacion/editar")
 public void editarEducacion(@RequestBody Educacion edu){
     eduServ.editarEducacion(edu);

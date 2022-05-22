@@ -30,9 +30,9 @@ private Long id;
 @Column(name="tipotrabajo")
 private String tipotrabajo;
 
-@ManyToMany(mappedBy="trabajos")
-@JsonIgnore
-private Collection<ExperienciaLaboral> experiencialaboral = new HashSet();
+//@ManyToMany(mappedBy="trabajos")
+//@JsonIgnore
+//private Collection<ExperienciaLaboral> experiencialaboral = new HashSet();
 
 
     public TipoTrabajo() {

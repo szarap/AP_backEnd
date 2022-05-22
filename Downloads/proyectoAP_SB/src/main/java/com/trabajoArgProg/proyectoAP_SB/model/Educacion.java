@@ -37,13 +37,15 @@ private Long id;
 @Column(name="nombre")
 private String nombre;
 
-@Temporal(TemporalType.DATE)
+@Temporal(javax.persistence.TemporalType.DATE)
 @Column(name="fechaInicio")
 private Date fechaInicio;
 
-@Temporal(TemporalType.DATE)
+@Temporal(javax.persistence.TemporalType.DATE)
 @Column(name="fechaFin")
 private Date fechaFin;
+
+
 
 //----mapeo con Persona
 @ManyToOne
@@ -52,21 +54,23 @@ private Date fechaFin;
 private Persona persona_id;
 
 //----mapeo con tipo Educacion
-@ManyToMany
-   private Collection<TipoEducacion> tipoeducaciones = new HashSet();
-
+//@ManyToMany
+   //private Collection<TipoEducacion> tipoeducaciones = new HashSet();
+@ManyToOne
+private TipoEducacion tipoEducacion;
 
 
 
 public Educacion() {
     }
 
-    public Educacion(Long id, String nombre, Date fechaInicio, Date fechaFin, Persona persona_id) {
+    public Educacion(Long id, String nombre, Date fechaInicio, Date fechaFin, Persona persona_id, TipoEducacion tipoEducacion) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.persona_id = persona_id;
+        this.tipoEducacion = tipoEducacion;
     }
 
  

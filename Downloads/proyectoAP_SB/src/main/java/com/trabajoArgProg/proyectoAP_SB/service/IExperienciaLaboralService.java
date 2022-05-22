@@ -16,4 +16,6 @@ public interface IExperienciaLaboralService {
     public ExperienciaLaboral buscarExperienciaLaboral(Long id);
 
     public void editarExperienciaLaboral(ExperienciaLaboral expLab);
+    
+   // public void editarExperienciaLaborald(ExperienciaLaboral expLabId);
 }

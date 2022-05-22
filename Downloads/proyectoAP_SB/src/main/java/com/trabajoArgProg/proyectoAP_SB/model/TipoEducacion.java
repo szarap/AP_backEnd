@@ -34,9 +34,9 @@ private Long id;
 private String nombretedu;
 
 //------ mapeo con Educacion
-@ManyToMany(mappedBy="tipoeducaciones")
-@JsonIgnore
-private Collection<Educacion> educaciones = new HashSet();
+//@ManyToMany(mappedBy="tipoeducaciones")
+//@JsonIgnore
+//private Collection<Educacion> educaciones = new HashSet();
   
     public TipoEducacion() {
     }

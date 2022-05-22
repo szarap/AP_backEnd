@@ -57,28 +57,38 @@ private String descripcion;
 private Persona persona_id;
 
 //----mapeo de Experiencia Lab con Tipo Trabajo
-@ManyToMany
-private Collection<TipoTrabajo> trabajos = new HashSet();
+//@ManyToMany
+//private Collection<TipoTrabajo> trabajos = new HashSet();
+@ManyToOne
+private TipoTrabajo trabajos;
 
     public ExperienciaLaboral() {
     }
 
-    public ExperienciaLaboral(Long id, String nombreExperiencia, boolean actual, Date fechaInicio, Date fechaFin, String descripcion, Persona persona_id) {
+    //public ExperienciaLaboral(Long id, String nombreExperiencia, boolean actual, Date fechaInicio, Date fechaFin, String descripcion, Persona persona_id) {
+      //  this.id = id;
+        //this.nombreExperiencia = nombreExperiencia;
+        //this.actual = actual;
+        //this.fechaInicio = fechaInicio;
+        //this.fechaFin = fechaFin;
+        //this.descripcion = descripcion;        
+        //this.persona_id = persona_id;
+    //}
+
+    public ExperienciaLaboral(Long id, String nombreExperiencia, boolean actual, Date fechaInicio, Date fechaFin, String descripcion, Persona persona_id, TipoTrabajo trabajos) {
         this.id = id;
         this.nombreExperiencia = nombreExperiencia;
         this.actual = actual;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.descripcion = descripcion;        
+        this.descripcion = descripcion;
         this.persona_id = persona_id;
+        this.trabajos = trabajos;
     }
-
-
-
+    
     
 
-   
-    
+
 
 
 
