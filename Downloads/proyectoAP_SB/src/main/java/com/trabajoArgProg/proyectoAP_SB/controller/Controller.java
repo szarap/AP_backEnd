@@ -327,5 +327,4 @@ public void editarTecnologia(@RequestBody Tecnologia tec){
     tecnoServ.editarTecnologia(tec);
 }
 //-----------------------------------------------------------------------------
-
 }
