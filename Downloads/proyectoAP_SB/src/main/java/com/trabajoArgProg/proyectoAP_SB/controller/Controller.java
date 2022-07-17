@@ -45,6 +45,7 @@ public void crearPersona(@RequestBody Persona pers){
         persoServ.crearPersona(pers);
 }
 
+
 @GetMapping("persona/ver")
 @ResponseBody
 public List<Persona> verPersonas(){
