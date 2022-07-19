@@ -59,7 +59,7 @@ public void borrarPersona (@PathVariable Long id){
     persoServ.borrarPersona(id);
 }
 
-@GetMapping( "persona/buscar/{id}")
+@GetMapping("persona/buscar/{id}")
    public Persona buscarPersona(@PathVariable Long id) {
    return persoServ.buscarPersona(id);
 }
@@ -90,7 +90,7 @@ public void borrarSexo(@PathVariable Long id){
     sexoServ.borrarSexo(id);
 }
 
-@GetMapping( "sexo/buscar/{id}")
+@GetMapping("sexo/buscar/{id}")
    public Sexo buscarSexo(@PathVariable Long id) {
    return sexoServ.buscarSexo(id);
 }
@@ -121,7 +121,7 @@ public void borrarUser(@PathVariable Long id){
     userServ.borrarUser(id);
 }
 
-@GetMapping( "user/buscar/{id}")
+@GetMapping("user/buscar/{id}")
    public User buscarUser(@PathVariable Long id) {
    return userServ.buscarUser(id);
 }
@@ -165,7 +165,7 @@ public void borrarProyecto(@PathVariable Long id){
     proyServ.borrarProyecto(id);
 }
 
-@GetMapping( "proyecto/buscar/{id}")
+@GetMapping("proyecto/buscar/{id}")
    public Proyecto buscarProyecto(@PathVariable Long id) {
    return proyServ.buscarProyecto(id);
 }
@@ -230,7 +230,7 @@ public void borrarTipoTrabajo(@PathVariable Long id){
     tipotrabServ.borrarTipoTrabajo(id);
 }
 
-@GetMapping( "tipoTrabajo/buscar/{id}")
+@GetMapping("tipoTrabajo/buscar/{id}")
    public TipoTrabajo buscarTipoTrabajo(@PathVariable Long id) {
    return tipotrabServ.buscarTipoTrabajo(id);
 }
@@ -260,7 +260,7 @@ public void borrarTipoEducacion(@PathVariable Long id){
     tipoeduServ.borrarTipoEducacion(id);
 }
 
-@GetMapping( "tipoEducacion/buscar/{id}")
+@GetMapping("tipoEducacion/buscar/{id}")
    public TipoEducacion buscarTipoEducacion(@PathVariable Long id) {
    return tipoeduServ.buscarTipoEducacion(id);
 }
@@ -290,7 +290,7 @@ public void borrarEducacion(@PathVariable Long id){
     eduServ.borrarEducacion(id);
 }
 
-@GetMapping( "educacion/buscar/{id}")
+@GetMapping("educacion/buscar/{id}")
    public Educacion buscarEducacion(@PathVariable Long id) {
    return eduServ.buscarEducacion(id);
 }
@@ -320,7 +320,7 @@ public void borrarTecnologia(@PathVariable Long id){
     tecnoServ.borrarTecnologia(id);
 }
 
-@GetMapping( "tecnologia/buscar/{id}")
+@GetMapping("tecnologia/buscar/{id}")
    public Tecnologia buscarTecnologia(@PathVariable Long id) {
    return tecnoServ.buscarTecnologia(id);
 }
