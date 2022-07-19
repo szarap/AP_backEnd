@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-//@CrossOrigin(origins="https://porfolio-pablo-gonzalez.web.app")
+@CrossOrigin(origins="https://porfolio-pablo-gonzalez.web.app")
 @RequestMapping("/api/")
 public class Controller {
     
